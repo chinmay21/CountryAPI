@@ -8,6 +8,7 @@ import Loader from './Loader';
 import arrow from '../assets/arrow.png';
 import './Home.css';
 
+
 const Home = () => {
   const api = 'https://restcountries.com/v3.1/all';
   const [loading, setLoading] = useState(true);
@@ -109,7 +110,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className='w-full h-full flex flex-wrap justify-start gap-x-[44px]'>
+        <div className='w-full h-full flex flex-wrap justify-center gap-x-[44px] md:justify-start'>
           {filteredCountries.map((country) => (
             <Cards key={country.cca3} country={country} />
           ))}
