@@ -4,6 +4,7 @@ import { useTheme } from '../ThemeContext';
 import { useNavigate } from 'react-router-dom';
 
 
+//commiting for knowledge
 const Cards = ({country}) => {
   const navigate = useNavigate();
   const { mode} = useTheme();
