@@ -22,14 +22,23 @@ const Country = () => {
 
   useEffect(() => {
     if (country) {
-      if (country.languages) {
-        setLanguages(Object.values(country.languages));
-      }
+      if (country.languages) { 
+        const languagesArray = Object.values(country.languages);
+        if (country.name.common === "Zimbabwe") { 
+          setLanguages(languagesArray.slice(0, 4)); 
+        } else { 
+          setLanguages(languagesArray); 
+        }
+      }    
       if (country.name && country.name.nativeName) {
         const nativeNamesArray = Object.values(country.name.nativeName).map(
           name => name.common
         );
-        setNativeNames(nativeNamesArray);
+        if(country.name.common === "Zimbabwe") {
+          setNativeNames([nativeNamesArray[0]]);
+        } else {
+          setNativeNames(nativeNamesArray);
+        }
       }
       if (country.currencies) {
         const currenciesArray = Object.values(country.currencies).map(
@@ -75,7 +84,7 @@ const Country = () => {
         </button>
       </div>
       {/* Hero Section */}
-      <div className='flex flex-col md:flex-row justify-between items-center w-[90%] md:w-[70%] mt-6 md:mt-12'>
+      <div className='flex flex-col md:flex-row justify-between items-center w-[90%] sm:w-[80%] mt-6 md:mt-12'>
         <div className='flex flex-col w-full md:w-auto'>
           <button onClick={clickHandler} className={`${mode ? 'back-btn' : ''} flex justify-center gap-x-3 items-center w-[108px] h-[36px] rounded-md border shadow-lg px-3 mt-[25px]`}>
             <FaArrowLeftLong className={`${mode ? 'dark-text' : ''} w-[15px] h-[15px]`} />
@@ -85,9 +94,9 @@ const Country = () => {
             <img src={country.flags.svg} alt={`Flag of ${country.name.common}`} className='w-full md:w-auto md:h-[350px] object-cover' />
             <div className='flex flex-col items-start gap-y-3 md:pl-[90px] mt-6 md:mt-0'>
               <h2 className={`${mode ? 'dark-text' : ''} font-bold text-2xl pb-[10px]`}>{country.name.common}</h2>
-              <div className='flex flex-wrap md:flex-nowrap gap-x-1'>
+              <div className='flex flex-wrap sm:flex-nowrap gap-x-1'>
                 <h3 className={`${mode ? 'dark-text' : ''} font-[500]`}>Native Name:</h3>
-                <div className='flex gap-x-3'>
+                <div className='flex gap-x-2'>
                   {nativeNames.map((nativeName, index) => (
                     <p className={`${mode ? 'dark-text' : ''}`} key={index}>{nativeName}</p>
                   ))}
@@ -138,5 +147,3 @@ const Country = () => {
 }
 
 export default Country;
-
-
