@@ -63,7 +63,7 @@ const Home = () => {
 
   return (
     <div className={`w-[100vw] h-[100vh] flex flex-col items-center parent-container ${mode ? 'dark' : 'light'}`}>
-      <div className={`${mode ? 'navbar' : ''} flex w-[100vw] justify-between h-[100px] pb-[20px] pt-[30px] border-b-[1px] items-center shadow-md px-[20px] md:px-[250px]`}>
+      <div className={`${mode ? 'navbar' : ''} flex w-[100vw] justify-between h-[100px] pb-[20px] pt-[30px] border-b-[1px] items-center shadow-md px-[20px] xl:px-[250px]`}>
         <p className={`${mode ? 'title' : ''} font-bold text-xl`}>Where in the world ?</p>
         {/* Dark Mode Button */}
         <button onClick={toggleMode} className={`flex items-center gap-x-1 ${mode ? 'hidden' : 'inline-block'}`}>
@@ -77,10 +77,10 @@ const Home = () => {
         </button>
       </div>
       {/* Input field, Dropdown and Cards Container */}
-      <div className='w-[90%] md:w-[80%] flex flex-col justify-center mt-[50px]'>
+      <div className='w-[90%] xl:w-[80%] flex flex-col justify-center mt-[50px]'>
         {/* Input field and Dropdown Container */}
-        <div className='flex flex-col justify-between md:flex-row px-5'>
-          <div className='flex h-[100px] w-full md:w-[40%] relative'>
+        <div className='flex flex-col justify-between xl:flex-row px-5'>
+          <div className='flex h-[100px] w-full xl:w-[40%] relative'>
             <input
               type='text'
               placeholder='Search for a country..'
@@ -91,7 +91,7 @@ const Home = () => {
             <img src={search} alt='search' loading='lazy' width={20} height={20} className='absolute top-[15px] left-[15px]' />
           </div>
 
-          <div className={`${mode ? 'btn' : ''} flex flex-col items-center justify-center h-[50px] w-full md:w-[20%] border shadow-md rounded-lg px-5 relative mt-4 md:mt-0`}>
+          <div className={`${mode ? 'btn' : ''} flex flex-col items-center justify-center h-[50px] w-full xl:w-[20%] border shadow-md rounded-lg px-5 relative mt-4 xl:mt-0`}>
             <button className='flex justify-center items-center gap-5 relative' onClick={toggleDropdown}>
               Filter by Region
               <img src={arrow} alt='arrow' loading='lazy' width={15} height={15} />
@@ -110,7 +110,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className='w-full h-full flex flex-wrap justify-center gap-x-[44px] md:justify-start'>
+        <div className='w-full h-full flex flex-wrap justify-center gap-x-[44px] xl:justify-start'>
           {filteredCountries.map((country) => (
             <Cards key={country.cca3} country={country} />
           ))}
